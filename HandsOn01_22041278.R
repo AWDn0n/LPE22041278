@@ -10,6 +10,27 @@
 ## Ctrl + Enter - Ejecuta una línea del código
 ## Ctrl + Shift + Enter - Ejecuta todo el código
 
+# INSTALLING KAGGLE ---------------------------------------------
+## pip install kaggle - Instalación de Kaggle
+## mkdir .kaggle - Creamos una carpeta para guardar el Token de la API
+## Una vez guardada la clave de la API, ya podemos usar Kaggle por terminal
+
+# KAGGLE COMMANDS -----------------------------------------------
+## kaggle datasets -h - Help para comandos de Kaggle
+## kaggle datasets list -s "keyword" - Busca datasets en Kaggle que coincidan
+## kaggle datasets download -d [user/dataset] - Descarga el dataset que queremos
+
+# CONFIGURING SSH -----------------------------------------------
+## gh auth login - Inicia el proceso
+## Elegimos GitHub.com
+## Elegimos SSH
+## Decimos que sí queremos añadir una nueva clave SSH
+## Ponemos una contraseña si se desea (guardada en WhatsApp)
+## Ponemos el título que queramos
+## Autenticamos mediante login con un navegador
+## Copiamos el código, damos enter dentro del terminal y pegamos el código
+## Autorizamos, ponemos nuestra contraseña de GitHub y... ¡listo!
+
 # GIT COMMANDS --------------------------------------------------
 ## git status - Estado del repositorio de git
 ## git init - Inicializa un repositorio
@@ -123,5 +144,5 @@ ds22041278_34$ccaa <- plyr::mapvalues(ds22041278_34$idccaa, from = c("01", "02",
 ds22041278_34 %>% view()
 
 ## Por último, exportamos los dataframes como CSV al ordenador
-write.csv(ds22041278_33,"C:/Users/pablo/Documents/R Projects/LPE22041278/ds22041278(33).csv", row.names = FALSE)
-write.csv(ds22041278_34,"C:/Users/pablo/Documents/R Projects/LPE22041278/ds22041278(34).csv", row.names = FALSE)
+write.csv(ds22041278_33,"C:/Users/pablo/Documents/R Projects/LPE22041278/ds22041278_33.csv", row.names = FALSE)
+write.csv(ds22041278_34,"C:/Users/pablo/Documents/R Projects/LPE22041278/ds22041278_34.csv", row.names = FALSE)
