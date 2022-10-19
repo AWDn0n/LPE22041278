@@ -82,6 +82,13 @@ install.packages("pacman")
 
 ## Pacman - Instalador y gestor de paquetes
 
+pacman::p_load(httr, tidyverse, leaflet, janitor, readr, sparklyr)
+library(sparklyr)
+library(dplyr)
+library(tidyverse)
+library(stringr)
+library(readxl)
+
 # BASIC OPERATORS -----------------------------------------------
 cristina <- 20 ## Asigna el número 20 a la variable "cristina"
 clase_lpe <- c("marta","emilia","pablo") ## Hay que usar combine (c) para guardar varios datos en la variable
@@ -146,3 +153,18 @@ ds22041278_34 %>% view()
 ## Por último, exportamos los dataframes como CSV al ordenador
 write.csv(ds22041278_33,"C:/Users/pablo/Documents/R Projects/LPE22041278/ds22041278_33.csv", row.names = FALSE)
 write.csv(ds22041278_34,"C:/Users/pablo/Documents/R Projects/LPE22041278/ds22041278_34.csv", row.names = FALSE)
+
+# INTERACTIVE MAPS WITH LEAFLET ----------------------------------
+## Instalamos y cargamos la librería de Leaflet
+install.packages("leaflet")
+library(leaflet)
+
+## Imprimo en un mapa interactivo la localizacion del Top 10 más caras y otro mapa interactivo del Top 20 más baratas de Málaga
+## Gasoleo A. Top 10 más caras
+ds22041278_34 %>% select(rotulo, latitud, longitud_wgs84, precio_gasoleo_a, localidad, direccion) %>% top_n(10, precio_gasoleo_a) %>%
+  leaflet() %>% addTiles() %>% addCircleMarkers(lng = ~longitud_wgs84, lat = ~latitud, popup = ~rotulo, label = ~precio_gasoleo_a)
+
+## EJERCICIO: Crear un mapa interactivo con el Top 20 de gasolineras más baratas de MÁLAGA
+## Disponible en el link de RPubs: https://rpubs.com/AWDn0n/LPE22041278_19102022
+ds22041278_34 %>% filter(provincia == "MÁLAGA") %>% select(rotulo, latitud, longitud_wgs84, precio_gasoleo_a, localidad, direccion) %>% top_n(-20, precio_gasoleo_a) %>%
+  leaflet() %>% addTiles() %>% addCircleMarkers(lng = ~longitud_wgs84, lat = ~latitud, popup = ~rotulo, label = ~precio_gasoleo_a)
