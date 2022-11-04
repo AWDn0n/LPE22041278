@@ -104,7 +104,7 @@ res_ <- httr::GET("https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburan
 ## Hay que leer el contenido de la respuesta provista por el servidor
 xml2::read_xml(res_$content)
 
-## READING AND WRITING (FILES) ----------------------------------
+# READING AND WRITING (FILES) ----------------------------------
 ## Guardamos la url en una variable y usamos jsonlite para sacar los datos de forma fácil, rápida y directa
 url_ <- "https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/PreciosCarburantes/EstacionesTerrestres/"
 f_raw <- jsonlite::fromJSON(url_)
